@@ -45,14 +45,14 @@ button:hover {
 }
 
 .button {
-    display: flex; /* потом none */
+    display: flex; /* ГЇГ®ГІГ®Г¬ none */
     justify-content: center;
     margin-top: 300px;
     animation: float 3s ease-in-out infinite;
 }
 
 .objects_in_a_row {
-    display: none; /* потом flex */
+    display: none; /* ГЇГ®ГІГ®Г¬ flex */
     justify-content: center;
     gap: 70px;
     margin-top: 130px;
