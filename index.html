@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Website</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <main>
+
+        <section class="to-do-container">
+            <div class="to-do">
+                <input id="task-input" type="text" placeholder="your task" />
+                <ul id="tasklist"></ul>
+            </div>
+            <div class="search">
+
+            </div>
+        </section>
+
+        <section class="filter-container">
+            <div class="filter">
+                <div class="filter-element"></div>
+                <div class="filter-text-container">
+                    <p class="filter-text">
+                        <span id="newest-first">newest first</span> <br />
+                        <span id="oldest-first">oldest first</span><br />
+                    </p>
+                </div>
+
+                <div class="filter-element" style="margin-top: 40px;"></div>
+                <div class="filter-text-container">
+                    <p class="filter-text">
+                        <button class="filter-select" id="completed-only"></button>completed only<br />
+                        <button class="filter-select" id="incomplete-only"></button>incomplete only<br />
+                        <button class="filter-select" id="high-priority-only"></button>high priority only<br />
+                    </p>
+                </div>
+
+            </div>
+            <div class="filter-button">
+
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        const taskInput = document.getElementById('task-input');
+        const taskList = document.getElementById('tasklist');
+
+        taskInput.addEventListener('keypress', function (event) {
+            if (event.key === 'Enter') {
+                const text = taskInput.value.trim();
+
+                if (text !== "") {
+                    const task = document.createElement('li');
+                    const taskText = document.createElement('span');
+
+                    taskText.textContent = text;
+
+                    const deleteBtn = document.createElement('button');
+                    deleteBtn.textContent = '✕'; 
+                    deleteBtn.className = 'delete-task-btn';
+
+                    
+                    task.appendChild(taskText);
+                    task.appendChild(deleteBtn);
+
+                    taskList.appendChild(task);
+
+                    taskInput.value = '';
+
+                    deleteBtn.addEventListener('click', function () {
+                        task.remove();
+                    });
+                }
+            }
+        });
+
+    </script>
+</body>
+</html>
