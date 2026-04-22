@@ -3,21 +3,38 @@
     padding: 0;
 }
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 html {
-    background: linear-gradient(#D5C9EC, #AB81FA); /* background перезаписывает ВСЕ предыдущие настройки фона */
-    background-attachment: fixed; /* привязывает к окну браузера */
+    background: linear-gradient(#D5C9EC, #AB81FA);
+    background-attachment: fixed;
 }
 
 main {
     display: flex;
-    gap: 50px;
-    justify-content: center;
+    flex-direction: column;
+    gap: 40px;
     margin-top: 70px;
+}
+
+.top-container {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+}
+
+.bottom-container {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
 }
 
 .to-do-container {
     width: 1100px;
-    flex-shrink: 0;
 }
 
 .to-do {
@@ -29,7 +46,7 @@ main {
 }
 
 #task-input {
-    width: 900px;
+    width: 980px;
     height: 90px;
     border: none;
     margin: 50px 60px 0 60px; /* верх право низ лево */
@@ -57,7 +74,7 @@ main {
 }
 
 #tasklist li {
-    width: 805px;
+    width: 885px;
     border-radius: 50px;
     padding: 20px 40px;
     margin-bottom: 15px;
@@ -67,7 +84,7 @@ main {
     background-color: rgba(250, 239, 255, 0.6);
     word-break: break-word;
     display: flex;
-    justify-content: space-between;  /* текст слева, кнопка справа */
+    justify-content: space-between; /* текст слева, кнопка справа */
     align-items: center;
 }
 
@@ -75,18 +92,51 @@ main {
     transform: scale(1.05);
 }
 
-/* Ширина скроллбара */
+.edit-task-btn,
+.priority-task-btn,
+.complete-task-btn,
+.delete-task-btn {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 30px;
+    transition: all 0.2s ease;
+}
+
+.priority-task-btn {
+    font-size: 22px;
+}
+
+.edit-task-btn:hover,
+.priority-task-btn:hover,
+.complete-task-btn:hover,
+.delete-task-btn:hover {
+    background-color: rgba(194, 162, 255, 0.3);
+    transform: scale(1.1);
+}
+
+#tasklist li.priority {
+    background-color: #FFF9DA;
+}
+
+#tasklist li.completed {
+    text-decoration: line-through;
+    opacity: 0.6;
+}
+
+
+/* скроллбар */
 #tasklist::-webkit-scrollbar {
     width: 20px;
 }
 
-/* Дорожка (фон) */
 #tasklist::-webkit-scrollbar-track {
     background: rgba(255, 255, 255, 0.3);
     border-radius: 10px;
 }
 
-/* Ползунок */
 #tasklist::-webkit-scrollbar-thumb {
     background: #C8ACFE;
     border-radius: 10px;
@@ -96,34 +146,11 @@ main {
     background: #C2A2FF;
 }
 
-.delete-task-btn {
-    background-color: #FF6B6B;
-    color: white;
-    border: none;
-    border-radius: 40px;
-    padding: 8px 20px;
-    font-size: 18px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-}
-
-.delete-task-btn:hover {
-    background-color: #FF4444;
-    transform: scale(1.05);
-}
-
-.search {
-    height: 110px;
-    background-color: #C8ACFE;
-    margin-top: 40px;
-    border-radius: 30px;
-}
 
 .filter-container {
     display: flex;
     flex-direction: column;
     width: 500px;
-    flex-shrink: 0;
 }
 
 .filter {
@@ -133,8 +160,9 @@ main {
     border-radius: 60px;
 }
 
+
 .filter-element {
-    width: 300px;
+    width: 380px;
     height: 50px;
     margin: 50px 60px 0 60px; /* верх право низ лево */
     border-radius: 50px;
@@ -156,13 +184,57 @@ main {
 }
 
 .filter-select {
-    
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: none;
+    margin-right: 20px;
+    background-color: #FAEFFF;
+    transition: all 0.2s ease;
 }
 
-.filter-button {
-    width: 100%;
+.filter-select:hover {
+    background-color: #C2A2FF;
+    transform: scale(1.05);
+}
+
+.filter-select.active {
+    background-color: #7C6987;
+}
+
+.edit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    height: 110px;
+    border: none;
+    background-color: #C8ACFE;
+    border-radius: 30px;
+    font-family: Verdana;
+    font-size: 23px;
+    color: #7C6987;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.edit:hover {
+    transform: scale(1.05);
+}
+
+#search-input {
+    width: 1200px;
     height: 110px;
     background-color: #C8ACFE;
-    margin-top: 40px;
     border-radius: 30px;
+    border: none;
+    padding-left: 40px;
+    padding-right: 40px;
+    font-family: Verdana;
+    font-size: 23px;
+    color: #624598;
+}
+
+#search-input:focus {
+    outline: none;
 }
