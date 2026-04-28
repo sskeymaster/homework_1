@@ -1,0 +1,53 @@
+#screen {
+    background-color: #F9EFEF;
+    min-height: 100vh;
+    margin: 0;
+    position: relative;
+}
+
+.dialogue-container {
+    position: absolute;
+    top: 180px;
+    left: 45%;
+    transform: translateX(-50%);
+}
+
+#dialogue-box {
+    width: 900px;
+    height: auto;
+}
+
+p {
+    position: absolute;
+    top: 90px;
+    left: 100px;
+    font-size: 45px;
+    line-height: 1.8;
+    margin: 0;
+}
+
+#color-button {
+    position: absolute;
+    top: 550px;
+    left: 42%;
+    transform: translateX(-50%);
+    height: 94px;
+    width: 570px;
+    border: none;
+    margin-top: 40px;
+    border-radius: 50px;
+    background-color: #E6C9C9;
+    font-size: 32px;
+}
+
+#color-button:hover {
+    background-color: #E3B8B8;
+}
+
+#cat {
+    position: absolute;
+    bottom: 40px;
+    right: 60px;
+    width: 400px;
+    height: auto;
+}
